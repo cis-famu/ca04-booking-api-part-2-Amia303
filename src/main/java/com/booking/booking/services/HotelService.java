@@ -1,52 +1,62 @@
-package com.booking.booking.services;
+package edu.famu.booking.services;
 
+import edu.famu.booking.models.parse.Hotel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.parse4j.Parse;
+import org.parse4j.ParseException;
+import org.parse4j.ParseQuery;
 import org.springframework.stereotype.Service;
 
-import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
-@Service //lets Spring know that this is a service
+@Service
 public class HotelService {
     protected final Log logger = LogFactory.getLog(this.getClass()); //used to write to the console
 
-    public ArrayList<Product> retrieveProducts()
+    public ArrayList<Hotel> retrieveHotels(String sort)
     {
 
         logger.info(Parse.isIsRootMode());
-        final ArrayList<Product> products = new ArrayList<>();
+        final ArrayList<Hotel> hotels = new ArrayList<>();
+        List<Hotel> list = null;
 
-        ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
+        ParseQuery<Hotel> query = ParseQuery.getQuery(Hotel.class);
+
         try {
-            List<Product> list = query.find();
-            for (Product p : list) {
-                //logger.info(p.toString()); //use if you want to see your products in the console
-                products.add(p);
+
+            if(sort.equals("asc")){
+                list = query.orderByAscending("cheapestPrice").find();
+            }else{
+                list = query.orderByDescending("cheapestPrice").find();
+            }
+
+            for (Hotel p : list) {
+                hotels.add(p);
             }
         }
         catch(Exception e)
         {
             logger.error("Error occurred", e);
         }
-        logger.info(products.size());
-        return products;
+        logger.info(hotels.size());
+        return hotels;
     }
 
-    public Product getProductById(String id)
+    public Hotel getHotelById(String id)
     {
-        Product product = null;
+        Hotel hotel = null;
 
-        //defines the query for the product class
-        ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
+        ParseQuery<Hotel> query = ParseQuery.getQuery(Hotel.class);
 
         try{
-            product = query.get(id); //gets a single record based on objectId
+            hotel = query.get(id);
         }catch (ParseException e)
         {
             e.printStackTrace();
         }
 
-        return product;
+        return hotel;
     }
 }

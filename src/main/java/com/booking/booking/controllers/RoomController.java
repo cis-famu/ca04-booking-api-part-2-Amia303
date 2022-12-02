@@ -1,21 +1,40 @@
 package com.booking.booking.controllers;
 
-public class RoomController {
-    private OrderService orderService;
+import com.booking.booking.services.RoomService;
+import com.booking.booking.models.serializable.SerializableRoom;
+import com.booking.booking.models.parse.Room;
+import org.springframework.web.bind.annotation.*;
 
-    public OrderController(OrderService orderService) {
-        this.orderService = orderService;
+import java.util.ArrayList;
+
+@RestController //identified this class a controller used for REST API class.
+@RequestMapping("/api/v1/room") //sets up the base url for all calls to methods in this file
+
+public class RoomController {
+
+    private RoomService roomService;
+
+    public RoomController(RoomService roomService) {
+        this.roomService = roomService;
     }
 
-    @GetMapping("/")
-    public ArrayList<SerializableOrder> getOrders()
-    {
-        ArrayList<SerializableOrder> list = new ArrayList<>();
-        ArrayList<Order> orders = orderService.retrieveOrders();
+    //get all
+    @GetMapping("/") //sets the path to this method
+    public ArrayList<SerializableRoom> getRoom(@RequestParam(name = "sort" , required = false, defaultValue = "asc") String sort) {
+        ArrayList<SerializableRoom> rooms = new ArrayList<>();
 
-        for(Order o : orders)
-            list.add(o.getSerializable());
+        //Convert the Parse Product object to a POJO Product object that can be serialized by Spring
+        ArrayList<Room> list = roomService.retrieveRooms(sort);
+        for(Room p : list)
+        {
+            rooms.add(p.getSerializable());
+        }
+        return rooms;
+    }
 
-        return list;
+    //get only one based on object id
+    @GetMapping("/find/{id}")
+    public SerializableRoom getRoomById(@PathVariable String id){
+        return roomService.getRoomById(id).getSerializable();
     }
 }

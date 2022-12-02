@@ -1,81 +1,117 @@
 package com.booking.booking.models.parse;
 
-public class Hotel { private final String TITLE = "title";
-    private final String DESC = "desc";
-    private final String IMG = "img";
-    private final String CAT = "categories";
-    private final String COLOR = "color";
-    private final String SIZE = "size";
-    private final String PRICE = "price";
-    private final String INSTOCK = "inStock";
+import edu.famu.booking.models.serializable.SerializableHotel;
+import org.json.JSONArray;
+import org.parse4j.ParseClassName;
+import org.parse4j.ParseObject;
 
-    public String getTitle() {
+import java.util.ArrayList;
+@ParseClassName("Hotel")
+public class Hotel extends ParseObject {
+    private final String ID = "id";
+    private final String NAME = "name";
+    private final String TYPE = "type";
+    private final String CITY = "city";
+    private final String ADDRESS = "address";
+    private final String DISTANCE = "distance";
+    private final String PHOTOS = "photos";
+    private final String TITLE = "title";
+    private final String RATING = "rating";
+    private final String ROOMS = "rooms";
+    private final String CHEAPEST = "cheapestPrice";
+    private final String FEATURED = "featured";
+
+    public String getId(){
+        return getString(ID);
+    }
+    public void setId(String id){
+        put(ID, id);
+    }
+
+    public String getName(){
+        return getString(NAME);
+    }
+    public void setName(String name){
+        put(NAME, name);
+    }
+
+    public String getType(){
+        return getString(TYPE);
+    }
+    public void setType(String type){
+        put(TYPE, type);
+    }
+
+    public String getCity(){
+        return getString(CITY);
+    }
+    public void setCity(String city){
+        put(CITY, city);
+    }
+
+    public String getAddress(){
+        return getString(ADDRESS);
+    }
+    public void setAddress(String address){
+        put(ADDRESS, address);
+    }
+
+    public String getDistance(){
+        return getString(DISTANCE);
+    }
+    public void setDistance(String distance){
+        put(DISTANCE, distance);
+    }
+
+    public ArrayList<String> getPhotos(){
+        return (ArrayList<String>) get(PHOTOS);
+    }
+    public void setPhotos(ArrayList<String> photos){
+        put(PHOTOS, createJSONArray(photos));
+    }
+
+    public String getTitle(){
         return getString(TITLE);
     }
-
-    public void setTitle(String title) {
-        put(TITLE ,title);
+    public void setTitle(String title){
+        put(TITLE, title);
     }
 
-    public String getDesc() {
-        return getString(DESC);
+    public int getRating(){
+        return getInt(RATING);
+    }
+    public void setRating(int rating){
+        put(RATING, rating);
     }
 
-    public void setDesc(String desc) {
-        put(DESC, desc);
+    public ArrayList<Room> getRooms(){
+        return (ArrayList<Room>) get(ROOMS);
+    }
+    public void setRooms(ArrayList<Room> rooms){
+        put(ROOMS, createJSONArray(rooms));
     }
 
-    public String getImg() {
-        return getString(IMG);
+    public double getCheapestPrice(){
+        return getInt(CHEAPEST);
+    }
+    public void setCheapestPrice(double cheapestPrice){
+        put(CHEAPEST, cheapestPrice);
     }
 
-    public void setImg(String img) {
-        put(IMG, img);
+    public boolean getFeatured(){
+        return getBoolean(FEATURED);
+    }
+    public void setFeatured(boolean featured){
+        put(FEATURED, featured);
     }
 
-    public ArrayList<String> getCategories() {
-
-        return (ArrayList<String>) get(CAT);
+    public SerializableHotel getSerializable(){
+        return new SerializableHotel(
+                getId(), getName(), getType(), getCity(),
+                getAddress(), getDistance(), getPhotos(), getTitle(),
+                getRating(), getRooms(), getCheapestPrice(), getFeatured()
+        );
     }
-
-    public void setCategories(ArrayList<String> categories) {
-        put(CAT, createJSONArray(categories));
-    }
-
-    public ArrayList<String> getColor() {
-
-        return (ArrayList<String>) get(COLOR);
-    }
-
-    public void setColor(ArrayList<String> color) {
-        put(COLOR, createJSONArray(color));
-    }
-
-    public ArrayList<String> getSize() {
-
-        return (ArrayList<String>) get(SIZE);
-    }
-
-    public void setSize(ArrayList<String> size) {
-        put(SIZE, createJSONArray(size));
-    }
-
-    public double getPrice() {
-        return getDouble(PRICE);
-    }
-
-    public void setPrice(double price) {
-        put(PRICE, price);
-    }
-
-    public boolean getInStock() {
-        return getBoolean(INSTOCK);
-    }
-
-    public void setInStock(boolean inStock) {
-        put(INSTOCK, inStock);
-    }
-
 
     private JSONArray createJSONArray(ArrayList<?> arr )
     {
@@ -84,14 +120,5 @@ public class Hotel { private final String TITLE = "title";
             list.put(s);
 
         return list;
-    }
-
-    public SerializableProduct getSerializable()
-    {
-        return new SerializableProduct(
-                getObjectId(), getTitle(),getDesc(), getImg(),
-                getCategories(),getColor(), getSize(), getPrice(),
-                getInStock()
-        );
     }
 }

@@ -1,33 +1,41 @@
-package com.booking.booking.controllers;
+package edu.famu.booking.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import edu.famu.booking.models.parse.Hotel;
+import edu.famu.booking.models.serializable.SerializableHotel;
+import edu.famu.booking.models.parse.Hotel;
+import edu.famu.booking.services.HotelService;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
-public class HotelController {
-    private ProductService productService;
+@RestController //identified this class a controller used for REST API class.
+@RequestMapping("/api/v1/hotel") //sets up the base url for all calls to methods in this file
 
-    public HotelController(ProductService productService) {
-        this.productService = productService;
+public class HotelController {
+
+    private HotelService hotelService;
+
+    public HotelController(HotelService hotelService) {
+        this.hotelService = hotelService;
     }
 
     //get all
     @GetMapping("/") //sets the path to this method
-    public ArrayList<SerializableProduct> getProducts() {
-        ArrayList<SerializableProduct> products = new ArrayList<>();
+    public ArrayList<SerializableHotel> getHotel(@RequestParam(name = "sort" , required = false, defaultValue = "asc") String sort) {
+        ArrayList<SerializableHotel> Hotel = new ArrayList<>();
 
         //Convert the Parse Product object to a POJO Product object that can be serialized by Spring
-        ArrayList<Product> list = productService.retrieveProducts();
-        for(Product p : list)
+        ArrayList<Hotel> list = hotelService.retrieveHotels(sort);
+        for(Hotel p : list)
         {
-            products.add(p.getSerializable());
+            Hotel.add(p.getSerializable());
         }
-        return products;
+        return Hotel;
     }
 
     //get only one based on object id
     @GetMapping("/find/{id}")
-    public SerializableProduct getProductById(@PathVariable String id){
-        return productService.getProductById(id).getSerializable();
+    public SerializableHotel getHotelById(@PathVariable String id){
+        return hotelService.getHotelById(id).getSerializable();
     }
 }
