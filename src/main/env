@@ -1,5 +1,0 @@
-PARSE_APP_ID=YOUR_APP_ID
-PARSE_REST_ID=YOUR_REST_API_ID
-
-Dotenv dotenv = Dotenv.configure().filename("env").load();
-Parse.initialize(dotenv.get("PARSE_APP_ID"), dotenv.get("PARSE_REST_ID"));
