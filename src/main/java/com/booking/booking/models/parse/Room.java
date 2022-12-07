@@ -1,52 +1,69 @@
 package com.booking.booking.models.parse;
 
-public class Room {  final static String AMOUNT = "amount";
-    final static String ADDRESS = "address";
-    final static String PRODUCTS = "products";
-    final static String STATUS = "status";
+import com.booking.booking.models.RoomNumber;
+import com.booking.booking.models.serializable.SerializableRoom;
+import org.json.JSONArray;
+import org.parse4j.ParseClassName;
+import org.parse4j.ParseObject;
 
-    public double getAmount() {
-        return getDouble(AMOUNT);
+import java.util.ArrayList;
+
+@ParseClassName("Room")
+public class Room extends ParseObject {
+    private final String ID = "id";
+    private final String TITLE = "title";
+    private final String PRICE = "price";
+    private final String MAX = "maxPeople";
+    private final String NUM = "roomNumbers";
+
+    public String getId(){
+        return getString(ID);
     }
-    public void setAmount(double amount) {
-        put(AMOUNT, amount);
+    public void setId(String id){
+        put(ID, id);
     }
-    public ArrayList<CartItem> getProducts()
+
+    public String getTitle(){
+        return getString(TITLE);
+    }
+    public void setTitle(String title){
+        put(TITLE, title);
+    }
+
+    public double getPrice(){
+        return getDouble(PRICE);
+    }
+    public void setPrice(double price){
+        put(PRICE, price);
+    }
+
+    public int getMaxPeople(){
+        return getInt(MAX);
+    }
+    public void setMaxPeople(int maxPeople){
+        put(MAX, maxPeople);
+    }
+
+    public ArrayList<RoomNumber> getRoomNumbers(){
+        return (ArrayList<RoomNumber>) get(NUM);
+    }
+    public void setRoomNumbers(ArrayList<RoomNumber> roomNumbers){
+        put(NUM, createJSONArray(roomNumbers));
+    }
+
+    private JSONArray createJSONArray(ArrayList<?> arr )
     {
-        return (ArrayList<CartItem>) get(PRODUCTS);
-    }
-    public void setProducts(ArrayList<CartItem> products)
-    {
-        JSONArray items = new JSONArray();
-        for(CartItem c : products)
-            items.put(c.getJSONObject());
+        JSONArray list = new JSONArray();
+        for(Object s : arr)
+            list.put(s);
 
-        put(PRODUCTS, items);
+        return list;
     }
 
-    public Address getAddress()
-    {
-        Gson gson = new Gson();
-        JsonElement jsonElement = gson.toJsonTree(get(ADDRESS));
-        return gson.fromJson(jsonElement, Address.class);
-    }
-    public void setAddress(Address add)
-    {
-        put(ADDRESS, add);
-    }
-
-    public String getStatus()
-    {
-        return getString(STATUS);
-    }
-
-    public void setStatus(String status)
-    {
-        put(STATUS, status);
-    }
-
-
-    public SerializableOrder getSerializable() {
-        return new SerializableOrder(getObjectId(), getAmount(), getProducts(), getAddress(), getStatus());
+    public SerializableRoom getSerializable(){
+        return new SerializableRoom(
+                getId(), getTitle(), getPrice(),
+                getMaxPeople(), getRoomNumbers()
+        );
     }
 }

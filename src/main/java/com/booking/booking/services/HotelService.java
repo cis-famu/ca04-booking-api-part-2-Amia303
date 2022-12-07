@@ -1,6 +1,6 @@
-package edu.famu.booking.services;
+package com.booking.booking.services;
 
-import edu.famu.booking.models.parse.Hotel;
+import com.booking.booking.models.parse.Hotel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.parse4j.Parse;

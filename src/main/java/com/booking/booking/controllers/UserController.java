@@ -1,7 +1,7 @@
-package edu.famu.booking.controllers;
-import edu.famu.booking.models.parse.User;
-import edu.famu.booking.models.serializable.SerializableUser;
-import edu.famu.booking.services.UserService;
+package com.booking.booking.controllers;
+import com.booking.booking.models.parse.User;
+import com.booking.booking.models.serializable.SerializableUser;
+import com.booking.booking.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

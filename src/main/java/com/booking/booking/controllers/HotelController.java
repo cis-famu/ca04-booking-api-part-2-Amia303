@@ -1,9 +1,9 @@
-package edu.famu.booking.controllers;
+package com.booking.booking.controllers;
 
-import edu.famu.booking.models.parse.Hotel;
-import edu.famu.booking.models.serializable.SerializableHotel;
-import edu.famu.booking.models.parse.Hotel;
-import edu.famu.booking.services.HotelService;
+import com.booking.booking.models.parse.Hotel;
+import com.booking.booking.models.serializable.SerializableHotel;
+import com.booking.booking.models.parse.Hotel;
+import com.booking.booking.services.HotelService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

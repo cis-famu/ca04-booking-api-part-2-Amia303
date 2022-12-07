@@ -1,4 +1,4 @@
-package edu.famu.booking.services;
+package com.booking.booking.services;
 
 import edu.famu.booking.models.parse.User;
 import org.apache.commons.logging.Log;
@@ -57,4 +57,3 @@ public class UserService {
         return user;
     }
 }
-

@@ -1,6 +1,6 @@
-package edu.famu.booking.models.parse;
+package com.booking.booking.models.parse;
 
-import edu.famu.booking.models.serializable.SerializableUser;
+import com.booking.booking.models.serializable.SerializableUser;
 import org.parse4j.ParseClassName;
 import org.parse4j.ParseObject;
 

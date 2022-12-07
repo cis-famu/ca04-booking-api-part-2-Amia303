@@ -1,4 +1,4 @@
-package edu.famu.booking.models.serializable;
+package com.booking.booking.models.serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
