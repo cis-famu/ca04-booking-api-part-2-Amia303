@@ -5,31 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7ab0a95c-54b7-46ec-8985-e96f605fbb52" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/BookingApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/controllers/HotelController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/controllers/RoomController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/controllers/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/RoomNumber.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/parse/Hotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/parse/Room.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/parse/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/serializable/SerializableHotel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/serializable/SerializableRoom.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/models/serializable/SerializableUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/services/HotelService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/services/RoomService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/booking/booking/services/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/booking/booking/BookingApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ca04-booking-api-part-2-Amia303.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ca04-booking-api-part-2-Amia303.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,22 +31,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "8e86da4bb806605072d8e1f7a0e9327c"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;8e86da4bb806605072d8e1f7a0e9327c&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="BookingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="ca04-booking-api-part-2-Amia303" />
@@ -90,7 +65,8 @@
       <option name="presentableId" value="Default" />
       <updated>1670390601419</updated>
       <workItem from="1670390605376" duration="9000" />
-      <workItem from="1670461046897" duration="4125000" />
+      <workItem from="1670461046897" duration="4942000" />
+      <workItem from="1670466691095" duration="606000" />
     </task>
     <servers />
   </component>
